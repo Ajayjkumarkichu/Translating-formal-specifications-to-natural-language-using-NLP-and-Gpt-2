@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+        }
+        .code-container, .explanation-container {
+            width: 50%;
+            padding: 20px;
+        }
+        .code-container pre {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .explanation-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-y: auto;
+            height: calc(100vh - 80px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-container">
+            <h2>Translated Dafny Code</h2>
+            <pre id="translatedCode">{{ translated_code }}</pre>
+        </div>
+        <div class="explanation-container">
+            <h2>GPT Explanations</h2>
+            <div id="explanations">
+                {% for key, value in explanations.items() %}
+                    <h3>{{ key }} Explanations:</h3>
+                    {% for explanation in value %}
+                        <p>{{ explanation }}</p>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

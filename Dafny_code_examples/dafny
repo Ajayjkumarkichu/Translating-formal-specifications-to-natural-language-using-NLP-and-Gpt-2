@@ -1,0 +1,28 @@
+method Main() {
+    var numbers: Array<int> := [2, 5, 8, 10, 15]; // Example input numbers
+    evenNumbers(numbers);
+}
+
+method evenNumbers(numbers: array<int>) {
+    var evenNumbers := new int[numbers.Length];
+    var count := 0;
+
+    for num in numbers {
+        if num % 2 == 0 {
+            evenNumbers[count] := num;
+            count := count + 1;
+        }
+    }
+
+    if count == 0 {
+        print("No even numbers found.");
+    } else {
+        print("Even numbers found: ");
+        for i in 0 .. count - 1 {
+            print(evenNumbers[i]);
+            if i < count - 1 {
+                print(", ");
+            }
+        }
+    }
+}
